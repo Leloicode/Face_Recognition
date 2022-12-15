@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hệ thống nhận diện</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <style>
+      .row img {
+        border: solid #aaa 1px;
+        border-radius: 10px;
+      }
+      .avatar {
+        width: 70px;
+        height: 70px;
+      }
+      .title {
+        text-align: center;
+        color: #ffff;
+      }
+      .content-left {
+        margin: 20px auto;
+      }
+      .content-right {
+        margin: 0 auto;
+      }
+      .cameraview {
+        width: 100%;
+      }
+
+      .card-list {
+        background-color: rgb(76, 76, 76);
+        border-radius: 10px;
+        padding: 10px;
+        width: 100%;
+        height: fit-content;
+        color: #fff;
+      }
+      body {
+        overflow: hidden;
+      }
+      .list {
+        padding: 20px;
+        overflow: scroll;
+        height: 370px;
+        overflow-x: hidden;
+        margin-bottom: 20px;
+      }
+
+      .list::-webkit-scrollbar {
+        width: 2px;
+        background-color: #aaa;
+      }
+      .list::-webkit-scrollbar-thumb {
+        background-color: #ff684a;
+      }
+
+      .card-list .date-time {
+        font-size: 0.8em;
+      }
+
+      .card-list img {
+        border-radius: 50%;
+        border: solid #ff684a 2px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-dark">
+    <div class="row">
+      <div class="col-md-7 content-left">
+        <h1 class="title">Hệ thống nhận dạng sinh viên</h1>
+        <img src="{% url 'video_feed' %}" alt="" class="cameraview" />
+      </div>
+      <div class="content-right col-md-4" id="reloadList">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-light mt-3" style="border-bottom: solid #fff 1px">
+              Danh sách sinh viên
+            </h2>
+            <div id="studentList" class="list">
+              {% for name in names reversed %}
+              <div class="card-list mt-2">
+                <div class="row">
+                  <div class="col-md-3 date-time">
+                    <span class="date align-middle">
+                      07/12/2022
+                      <br />
+                      14:11:08
+                    </span>
+                  </div>
+                  <div class="col-md-6">
+                    <b class="text-center">{{ name }}</b> <br />
+                    <b
+                      class="text-light bg-success"
+                      style="
+                        font-size: 1em;
+                        border-radius: 10px;
+                        padding: 2px 4px;
+"
+                      >20C0750</b
+                    >
+                  </div>
+                  <div class="col-md-3">
+                    <img
+                      src="https://static.bangkokpost.com/media/content/20211028/c1_2205267_211028062917.jpg"
+                      alt=""
+                      class="avatar"
+                    />
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-light mt-3" style="border-bottom: solid #fff 1px">
+              Danh sách người lạ
+            </h2>
+            <div class="list">
+              <div class="card-list mt-2">
+                <div class="row">
+                  <div class="col-md-3 date-time">
+                    <span class="date align-middle">
+                      07/12/2022
+                      <br />
+                      14:11:08
+                    </span>
+                  </div>
+                  <div class="col-md-6">
+                    <b class="text-center">Ngô Duy Hưng</b> <br />
+                    <b
+                      class="text-light bg-danger"
+                      style="
+                        font-size: 1em;
+                        border-radius: 10px;
+                        padding: 2px 4px;
+                      "
+                      >người lạ</b
+                    >
+                  </div>
+                  <div class="col-md-3">
+                    <img
+                      src="https://static.bangkokpost.com/media/content/20211028/c1_2205267_211028062917.jpg"
+                      alt=""
+                      class="avatar"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="card-list mt-2">
+                <div class="row">
+                  <div class="col-md-3 date-time">
+                    <span class="date align-middle">
+                      07/12/2022
+                      <br />
+                      14:11:08
+                    </span>
+                  </div>
+                  <div class="col-md-6">
+                    <b class="text-center">Ngô Duy Hưng</b> <br />
+                    <b
+                      class="text-light bg-danger"
+                      style="
+                        font-size: 1em;
+                        border-radius: 10px;
+                        padding: 2px 4px;
+                      "
+                      >Người lạ</b
+                    >
+                  </div>
+                  <div class="col-md-3">
+                    <img
+                      src="https://static.bangkokpost.com/media/content/20211028/c1_2205267_211028062917.jpg"
+                      alt=""
+                      class="avatar"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="card-list mt-2">
+<div class="row">
+                  <div class="col-md-3 date-time">
+                    <span class="date align-middle">
+                      07/12/2022
+                      <br />
+                      14:11:08
+                    </span>
+                  </div>
+                  <div class="col-md-6">
+                    <b class="text-center">Ngô Duy Hưng</b> <br />
+                    <b
+                      class="text-light bg-danger"
+                      style="
+                        font-size: 1em;
+                        border-radius: 10px;
+                        padding: 2px 4px;
+                      "
+                      >Người lạ</b
+                    >
+                  </div>
+                  <div class="col-md-3">
+                    <img
+                      src="https://static.bangkokpost.com/media/content/20211028/c1_2205267_211028062917.jpg"
+                      alt=""
+                      class="avatar"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="card-list mt-2">
+                <div class="row">
+                  <div class="col-md-3 date-time">
+                    <span class="date align-middle">
+                      07/12/2022
+                      <br />
+                      14:11:08
+                    </span>
+                  </div>
+                  <div class="col-md-6">
+                    <b class="text-center">Ngô Duy Hưng</b> <br />
+                    <b
+                      class="text-light bg-danger"
+                      style="
+                        font-size: 1em;
+                        border-radius: 10px;
+                        padding: 2px 4px;
+                      "
+                      >Người lạ</b
+                    >
+                  </div>
+                  <div class="col-md-3">
+                    <img
+                      src="https://static.bangkokpost.com/media/content/20211028/c1_2205267_211028062917.jpg"
+                      alt=""
+                      class="avatar"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="card-list mt-2">
+                <div class="row">
+                  <div class="col-md-3 date-time">
+                    <span class="date align-middle">
+                      07/12/2022
+                      <br />
+                      14:11:08
+                    </span>
+                  </div>
+                  <div class="col-md-6">
+                    <b class="text-center">Ngô Duy Hưng</b> <br />
+                    <b
+                      class="text-light bg-danger"
+                      style="
+                        font-size: 1em;
+                        border-radius: 10px;
+                        padding: 2px 4px;
+                      "
+                      >Người lạ</b
+                    >
+                  </div>
+                  <div class="col-md-3">
+<img
+                      src="https://static.bangkokpost.com/media/content/20211028/c1_2205267_211028062917.jpg"
+                      alt=""
+                      class="avatar"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script>
+      $(document).ready(function () {
+        setInterval(function () {
+          $("#studentList").load(" #studentList > *");
+        }, 500);
+      });
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
